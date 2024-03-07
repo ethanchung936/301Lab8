@@ -19,10 +19,6 @@ public class CustomListTest {
         return list;
     }
 
-    private City mockCity() {
-        return new City("Edmonton", "Alberta");
-    }
-
 
     /**
      * get the size of the list
@@ -55,5 +51,13 @@ public class CustomListTest {
         assertTrue(cityList.hasCity(city));
         cityList.deleteCity(city);
         assertFalse(cityList.hasCity(city));
+    }
+
+    @Test
+    void testCountCities() {
+        CustomList cityList = MockCityList();
+        assertEquals(0, cityList.countCities());
+        cityList.addCity(new City("Calgary", "Alberta"));
+        assertEquals(1, cityList.countCities());
     }
 }
